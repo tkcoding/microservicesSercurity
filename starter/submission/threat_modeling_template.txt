@@ -1,0 +1,7 @@
+Docker bench results in 3 failures on docker surface to harden as follows:
+[FAIL] 1.1.5 Ensure auditing is configured for Docker files and directories - /var/lib/docker (Automated)
+Remediation : Add -w /var/lib/docker -k docker into /etc/audit/rules.d/docker.rules
+[FAIL] 1.1.6 Ensure auditing is configured for Docker files and directories - /etc/docker (Automated)
+Remediation : Add -w /etc/docker -k docker into /etc/audit/rules.d/docker.rules
+[FAIL] 1.1.7 Ensure auditing is configured for Docker files and directories - docker.service (Automated)
+Remediation : Add -w /usr/lib/systemd/system/docker.service -k docker into /etc/audit/rules.d/docker.rules
