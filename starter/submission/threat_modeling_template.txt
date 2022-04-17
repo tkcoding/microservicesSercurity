@@ -1,3 +1,41 @@
+Docker Threat Modeling
+Given Docker's system components and the STRIDE framework, identify five potential threats that may arise.
+
+Spoofing Identity
+    - A user with bad intension can get access and introduce a malicious package or image into the registry this can be lead the user to a malware image.
+
+Tampering with Data 
+    - if not use an updated version of the image and have a vulnerability this can be lead to a malicious system exploited of Docker daemon configuration file.
+
+Information Disclosure 
+    - By default, all network traffic is allowed between containers on the same host on the default network bridge, this leads to a leak of restricted data like secrets or keys.
+
+Denial of Service  
+    - Memory limit is not set by default on docker images this can be lead to and massive DOS on the images and make them inaccessible because one container can be using most of the memory resources.
+
+Elevation of Privilege 
+    - if a user was not in place on the Dockerfile will lead an attacker to get administration or root access to de system and other images containers. 
+
+
+Kubernetes Threat Modeling
+Given Kubernetes' system components and the STRIDE framework, identify five potential threats that may arise.
+
+Spoofing Identity
+    - Exposing the  Kube ApiServer to the public could be an entry point for attackers, and allowing them to spoof and take over the cluster orchestration is important to limit the access by setting the TLS tunnel.
+
+Tampering with Data 
+    - The configuration of the etcd could be attacked if it is not restricted by setting the permission to files by 644, if not this can affect the entire cluster, compromising the system orchestration.
+
+Repudiation
+    - TLS need to be enabled all the time to prevent unauthorized changes on the system Kubelet.
+
+Information Disclosure 
+    - Sensitive Information like keys and secrets can be leaked on etcd,  one way to protect the system is to do the communication and store data encrypted the etcd at rest. 
+
+Denial of Service 
+ - The orchestration Kubelet can be a subject of DOS if we don’t set “--protect” flag 
+
+
 Docker bench results in 3 failures on docker surface to harden as follows:
 [FAIL] 1.1.5 Ensure auditing is configured for Docker files and directories - /var/lib/docker (Automated)
 Remediation : Add -w /var/lib/docker -k docker into /etc/audit/rules.d/docker.rules

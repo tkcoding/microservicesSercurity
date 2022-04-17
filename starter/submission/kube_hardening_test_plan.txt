@@ -1,0 +1,7 @@
+How will you test the changes?
+- Hardening should be done in test cluster that mimic production environment,  testing could run with version control like github and docker hub to ensure all changes was tracked (cluster.yaml).
+- Direct certain traffic to test cluster to simulate the production system as testing environment mimics production environment.
+
+How will you ensure the changes don't negatively affect your cluster?
+- Using granafa to ensure error and metrics being tracked and perform similarly compared to before changes implemented.
+- Using mesh-like service to split traffic at load balancer , if during testing there is unexpected outcome . Service will remain running since load-balancer could direct traffic to working cluster.
