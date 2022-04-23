@@ -1,12 +1,16 @@
 1. Incident commander name:
-- Unauthorised pod name minegate and monerpool that known as crypto mining activites were detected on clusters.
+Monero crypto mining container
+- Minergate through kubectl command
+- Monerpool through kubectl command 
 2. Executive Summary of what happened:
 - Abnormalities was detected on Falco-exporter where mount launched in privileged container and event rate have a sudden spike from 0.05 to 0.1 (double of the event rate)
 - CPU utilisation abnormalities double from average 30% to 61%. 
 3. Summary of what was affected:
-- Resources of system node being consumed by illegal activities and causing timeout and latency from cluster node.
+- Resources of system node being consumed by illegal activities and causing timeout. 
+- Sudden spike of resources usage causes response of the cluster to be delayed (increase in latency).
 4. Summmary of the impact:
-- Unauthorised mounted activites on cluster affect resources consumption like CPU , leading to latency and affected system availability.
+- Unauthorised mounted activites on cluster affect resources consumption like CPU utilization for kubernetes and default namespace.
+- Cryptomining consumes a lot of CPU and leads to potential latency in response.
 5. Summary of the remediation steps:
 - Immediate removal of unauthorized cluster activities and any consistent resources consumption that was not identify or deem to be legitimate.
 - Harden cluster node through hardening step with baseline hardening.
